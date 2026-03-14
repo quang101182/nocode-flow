@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<!-- NoCodeFlow | Telegram Bot with n8n Tutorial | v1.2.0 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Build a Telegram Bot with n8n (No Code) — Complete Guide 2026 | NoCodeFlow</title>
+    <meta name="description" content="Learn how to build a Telegram bot with n8n without writing any code. Complete step-by-step tutorial covering BotFather setup, triggers, commands, weather API, and deployment.">
+    <meta name="keywords" content="telegram bot n8n, build telegram bot no code, n8n telegram tutorial, telegram bot automation, no code telegram bot, n8n botfather, telegram workflow automation">
+    <meta name="author" content="NoCodeFlow">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nocode-flow.com/n8n-telegram-bot-tutorial.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Build a Telegram Bot with n8n (No Code) — Complete Guide 2026">
+    <meta property="og:description" content="Complete guide to building a Telegram bot with n8n. No coding required. Set up commands, weather lookups, web search, and more.">
+    <meta property="og:url" content="https://nocode-flow.com/n8n-telegram-bot-tutorial.html">
+    <meta property="og:site_name" content="NoCodeFlow">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="2026-03-12T00:00:00Z">
+    <meta property="article:author" content="NoCodeFlow">
+    <meta property="article:section" content="Tutorials">
+    <meta property="article:tag" content="n8n">
+    <meta property="article:tag" content="Telegram">
+    <meta property="article:tag" content="Bot">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Build a Telegram Bot with n8n (No Code) — Complete Guide 2026">
+    <meta name="twitter:description" content="Build a fully functional Telegram bot with n8n, no coding required. Commands, weather, web search, and more.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Article JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Build a Telegram Bot with n8n — No Coding Required",
+        "description": "Complete step-by-step tutorial for building a Telegram bot with n8n. Covers BotFather setup, trigger nodes, command routing, weather API, and deployment.",
+        "author": {
+            "@type": "Organization",
+            "name": "NoCodeFlow",
+            "url": "https://nocode-flow.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "NoCodeFlow"
+        },
+        "datePublished": "2026-03-12",
+        "dateModified": "2026-03-12",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://nocode-flow.com/n8n-telegram-bot-tutorial.html"
+        }
+    }
+    </script>
+
+    <!-- FAQ JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Can I build a Telegram bot without coding?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, absolutely. With n8n's visual workflow builder, you can create fully functional Telegram bots by connecting nodes in a drag-and-drop interface. No programming languages are required. You configure triggers, logic, and responses through simple forms and menus."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is n8n free for building Telegram bots?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "n8n offers a free self-hosted option using Docker where you can run unlimited workflows including Telegram bots. The n8n Cloud free tier includes a limited number of executions per month. For most personal Telegram bots, the free self-hosted version handles the load without any issues."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I get a Telegram Bot API token?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Open Telegram and search for @BotFather. Send the /newbot command, choose a display name and a unique username ending in 'bot'. BotFather will immediately reply with your HTTP API token, which looks like '123456789:ABCdefGhIjKlMnOpQrStUvWxYz'. Copy this token and paste it into n8n's Telegram credential settings."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar__logo"><span>NoCodeFlow</span></a>
+            <div class="navbar__links">
+                <a href="/">Home</a>
+                <a href="/best-free-automation-tools.html">Tools</a>
+                <a href="/about.html">About</a>
+            </div>
+            <div class="navbar__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="theme-toggle__icon theme-toggle__icon--sun">&#9788;</span>
+                    <span class="theme-toggle__icon theme-toggle__icon--moon">&#9790;</span>
+                </button>
+                <button class="navbar__hamburger" id="navHamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="navbar__mobile" id="navMobile">
+        <a href="/">Home</a>
+        <a href="/best-free-automation-tools.html">Tools</a>
+        <a href="/about.html">About</a>
+    </div>
+
+    <main>
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span class="breadcrumbs__separator">&rsaquo;</span>
+                <span>Tutorials</span>
+                <span class="breadcrumbs__separator">&rsaquo;</span>
+                <span class="breadcrumbs__current">Telegram Bot with n8n</span>
+            </nav>
+        </div>
+
+        <div class="article-layout">
+            <article class="article">
+                <header class="article__header">
+                    <h1 class="article__title">How to Build a Telegram Bot with n8n &mdash; No Coding Required</h1>
+                    <div class="article__meta">
+                        <span>Published March 12, 2026</span>
+                        <span class="article__meta-separator"></span>
+                        <span>18 min read</span>
+                        <span class="article__meta-separator"></span>
+                        <span>Tutorial</span>
+                    </div>
+                </header>
+
+                <div class="affiliate-disclosure">
+                    <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links. We may earn a commission at no extra cost to you. We only recommend tools we personally use and trust.
+                </div>
+
+                <div class="article__content">
+                    <!-- Introduction -->
+                    <section id="introduction">
+                        <h2>Why Build a Telegram Bot?</h2>
+                        <p>Telegram bots are one of the most versatile tools in the messaging world. Unlike WhatsApp or iMessage, Telegram was designed from the ground up with bot support baked into its core platform. There are over <strong>900 million active Telegram users</strong> worldwide, and bots handle everything from customer support and order tracking to news delivery and smart home control.</p>
+                        <p>The traditional approach to building a Telegram bot involves writing Python or Node.js code, setting up a server, managing webhooks, handling updates, and parsing JSON payloads. For developers, that is a familiar workflow. But what if you are a marketer, small business owner, community manager, or someone who simply wants to automate tasks without learning to code?</p>
+                        <p>That is where <a href="https://n8n.io" target="_blank" rel="noopener sponsored">n8n</a> changes the game. n8n is an open-source workflow automation platform with a native Telegram integration that lets you build fully functional bots using a visual drag-and-drop interface. You connect nodes on a canvas, configure settings through simple forms, and your bot is live in minutes, not days.</p>
+                        <p>In this tutorial, you will build a complete Telegram bot from scratch. Your bot will respond to commands, fetch live weather data, perform web searches, and reply with formatted messages. By the end, you will also have three advanced bot ideas you can build next. No coding required at any step.</p>
+                    </section>
+
+                    <!-- Prerequisites -->
+                    <section id="prerequisites">
+                        <h2>Prerequisites</h2>
+                        <p>Before we start building, make sure you have these ready:</p>
+                        <ul>
+                            <li><strong>An n8n account</strong> &mdash; sign up for a free <a href="https://n8n.io" target="_blank" rel="noopener sponsored">n8n Cloud account</a>, or run n8n locally with Docker (<code>docker run -it --rm -p 5678:5678 n8nio/n8n</code>)</li>
+                            <li><strong>A Telegram account</strong> &mdash; any personal Telegram account on mobile or desktop</li>
+                            <li><strong>BotFather access</strong> &mdash; search for <code>@BotFather</code> in Telegram (it is the official bot for creating bots)</li>
+                            <li><strong>About 15&ndash;20 minutes</strong> &mdash; enough time to set up everything and test your first bot</li>
+                        </ul>
+                        <p>Optional but recommended: a basic understanding of what APIs are (you do not need to write API code, just understand that bots talk to services through them).</p>
+                    </section>
+
+                    <!-- Step 1 -->
+                    <section id="step1">
+                        <h2>Step 1: Create Your Bot with BotFather</h2>
+                        <p>Every Telegram bot starts with BotFather. It is Telegram's official tool for registering new bots and managing existing ones. Think of it as the admin panel for all Telegram bots.</p>
+
+                        <div class="step-block">
+                            <div class="step-block__number">1</div>
+                            <div class="step-block__content">
+                                <h4>Open BotFather</h4>
+                                <p>Open Telegram on your phone or desktop. In the search bar, type <code>@BotFather</code> and select the verified account (it has a blue checkmark). Tap <strong>Start</strong> to begin the conversation.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__number">2</div>
+                            <div class="step-block__content">
+                                <h4>Create a new bot</h4>
+                                <p>Send the command <code>/newbot</code>. BotFather will ask you two things:</p>
+                                <ul>
+                                    <li><strong>Display name:</strong> This is what users see in the chat header. Choose something descriptive, like "My Assistant Bot" or "WeatherHelper"</li>
+                                    <li><strong>Username:</strong> This must be unique across all of Telegram and must end with <code>bot</code>. For example: <code>my_assistant_2026_bot</code> or <code>weatherhelper_bot</code></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__number">3</div>
+                            <div class="step-block__content">
+                                <h4>Save your API token</h4>
+                                <p>After creating the bot, BotFather replies with an HTTP API token that looks like this:</p>
+                                <pre><code>123456789:ABCdefGhIjKlMnOpQrStUvWxYz-1234567</code></pre>
+                                <p><strong>Copy this token immediately and store it somewhere safe.</strong> You will need it in the next step to connect n8n to your bot. Never share this token publicly, as anyone with it can control your bot.</p>
+                            </div>
+                        </div>
+
+                        <p>Optionally, you can also send <code>/setdescription</code> and <code>/setabouttext</code> to BotFather to customize your bot's profile. You can also upload a profile photo with <code>/setuserpic</code>.</p>
+                    </section>
+
+                    <!-- Step 2 -->
+                    <section id="step2">
+                        <h2>Step 2: Set Up the n8n Telegram Trigger Node</h2>
+                        <p>Now that your bot exists on Telegram, you need to connect it to n8n so that incoming messages are captured and processed.</p>
+
+                        <div class="step-block">
+                            <div class="step-block__number">1</div>
+                            <div class="step-block__content">
+                                <h4>Create a new workflow</h4>
+                                <p>Log into your <a href="https://n8n.io" target="_blank" rel="noopener sponsored">n8n</a> instance (Cloud or self-hosted). Click <strong>"New Workflow"</strong> and name it something like "Telegram Bot".</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__number">2</div>
+                            <div class="step-block__content">
+                                <h4>Add the Telegram Trigger node</h4>
+                                <p>Click the <strong>"+"</strong> button on the canvas or press <kbd>Tab</kbd>. Search for <strong>"Telegram Trigger"</strong> and add it. This node listens for incoming messages, commands, and callbacks sent to your bot.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__number">3</div>
+                            <div class="step-block__content">
+                                <h4>Configure Telegram credentials</h4>
+                                <p>In the Telegram Trigger node settings, click <strong>"Create New Credential"</strong>. Paste the API token you received from BotFather into the <strong>"Access Token"</strong> field. Click <strong>"Save"</strong>. n8n will automatically set up a webhook with Telegram so that messages are delivered to your workflow in real time.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__number">4</div>
+                            <div class="step-block__content">
+                                <h4>Set trigger updates</h4>
+                                <p>Under <strong>"Updates"</strong>, select the types of messages your bot should listen for. At minimum, check <strong>"message"</strong>. You can also enable <strong>"callback_query"</strong> if you plan to use inline keyboards later.</p>
+                            </div>
+                        </div>
+
+                        <p><strong>Important note for self-hosted n8n:</strong> The Telegram Trigger uses webhooks, which means Telegram needs to reach your n8n instance over the internet. If you are running n8n locally, you will need a tool like ngrok or Cloudflare Tunnel to expose your instance. On n8n Cloud, webhooks work out of the box.</p>
+                    </section>
+
+                    <!-- Step 3 -->
+                    <section id="step3">
+                        <h2>Step 3: Add Message Routing with the Switch Node</h2>
+                        <p>Your bot will receive all kinds of messages: commands like <code>/start</code>, <code>/help</code>, and <code>/weather</code>, as well as regular text. You need to route each type to the correct handler. The <strong>Switch</strong> node in n8n is perfect for this.</p>
+
+                        <ol>
+                            <li>Click the <strong>"+"</strong> on the Telegram Trigger node's output and add a <strong>Switch</strong> node</li>
+                            <li>Set the <strong>"Value"</strong> field to the incoming message text: <code>{{ $json.message.text }}</code></li>
+                            <li>Add routing rules for each command:
+                                <ul>
+                                    <li><strong>Rule 1:</strong> Value equals <code>/start</code> &rarr; Output 0</li>
+                                    <li><strong>Rule 2:</strong> Value equals <code>/help</code> &rarr; Output 1</li>
+                                    <li><strong>Rule 3:</strong> Value starts with <code>/weather</code> &rarr; Output 2</li>
+                                    <li><strong>Rule 4:</strong> Value starts with <code>/search</code> &rarr; Output 3</li>
+                                    <li><strong>Fallback:</strong> Everything else &rarr; Output 4 (default/unknown command)</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p>The Switch node creates separate output branches for each rule. You will connect a different response chain to each output. This architecture keeps your workflow organized and makes it easy to add new commands later; just add a new rule and connect a new branch.</p>
+                    </section>
+
+                    <!-- Step 4 -->
+                    <section id="step4">
+                        <h2>Step 4: Build /start and /help Responses</h2>
+                        <p>Every good bot needs a welcome message and a help command. These are the first things users interact with.</p>
+
+                        <h3>The /start command</h3>
+                        <p>Connect a <strong>Telegram</strong> node (the action node, not the trigger) to Output 0 of your Switch node:</p>
+                        <ol>
+                            <li>Add a <strong>Telegram</strong> node and select <strong>"Send Message"</strong> as the operation</li>
+                            <li>Set <strong>"Chat ID"</strong> to <code>{{ $json.message.chat.id }}</code> (this sends the reply to the correct user)</li>
+                            <li>Set <strong>"Text"</strong> to your welcome message:</li>
+                        </ol>
+                        <pre><code>Welcome to MyAssistantBot!
+
+I can help you with:
+/weather [city] - Get current weather
+/search [query] - Search the web
+/help - Show all commands
+
+Try sending /weather Paris to get started.</code></pre>
+                        <p>Set <strong>"Parse Mode"</strong> to <code>Markdown</code> if you want to use bold, italic, or other formatting.</p>
+
+                        <h3>The /help command</h3>
+                        <p>Connect another <strong>Telegram</strong> node to Output 1 with a similar setup. The help message should list all available commands with brief descriptions:</p>
+                        <pre><code>Available Commands:
+
+/start - Welcome message
+/weather [city] - Current weather for any city
+/search [query] - Search the web
+/help - This help message
+
+Examples:
+/weather London
+/search best automation tools 2026</code></pre>
+                        <p>These two commands establish the basic interaction pattern. Users know what your bot can do and how to use it. The <code>chat.id</code> expression ensures replies go back to the user who sent the message, even if multiple people are using the bot simultaneously.</p>
+                    </section>
+
+                    <!-- Step 5 -->
+                    <section id="step5">
+                        <h2>Step 5: Add a Weather Command (HTTP Request to wttr.in)</h2>
+                        <p>Now for the fun part: making your bot actually do something useful. The <code>/weather</code> command will fetch real-time weather data from <a href="https://wttr.in" target="_blank" rel="noopener noreferrer">wttr.in</a>, a free weather API that requires no API key.</p>
+
+                        <div class="step-block">
+                            <div class="step-block__number">1</div>
+                            <div class="step-block__content">
+                                <h4>Extract the city name</h4>
+                                <p>Connect a <strong>Set</strong> node (or <strong>Code</strong> node) to Output 2 of the Switch. Use an expression to extract the city from the command. The user sends <code>/weather Paris</code>, and you need just <code>Paris</code>:</p>
+                                <pre><code>{{ $json.message.text.replace('/weather ', '').trim() }}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__number">2</div>
+                            <div class="step-block__content">
+                                <h4>Fetch weather data</h4>
+                                <p>Add an <strong>HTTP Request</strong> node after the Set node. Configure it:</p>
+                                <ul>
+                                    <li><strong>Method:</strong> GET</li>
+                                    <li><strong>URL:</strong> <code>https://wttr.in/{{ $json.city }}?format=3</code></li>
+                                </ul>
+                                <p>The <code>?format=3</code> parameter returns a compact one-line weather summary like <code>Paris: +12°C Partly cloudy</code>.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__number">3</div>
+                            <div class="step-block__content">
+                                <h4>Send the weather response</h4>
+                                <p>Add a <strong>Telegram</strong> node after the HTTP Request. Set the text to the API response:</p>
+                                <pre><code>Current Weather:
+{{ $json.data }}
+
+Powered by wttr.in</code></pre>
+                            </div>
+                        </div>
+
+                        <p>For a richer experience, you can use <code>?format=j1</code> instead to get JSON data, then extract specific fields like temperature, humidity, wind speed, and UV index to build a beautifully formatted multi-line response. You can even add emoji based on the weather condition (sunny, cloudy, rainy) using IF nodes.</p>
+                    </section>
+
+                    <!-- Step 6 -->
+                    <section id="step6">
+                        <h2>Step 6: Add a Web Search Command</h2>
+                        <p>A search command turns your Telegram bot into a mini search engine. You can use any search API for this; here we will use the free <strong>DuckDuckGo Instant Answer API</strong>.</p>
+
+                        <div class="step-block">
+                            <div class="step-block__number">1</div>
+                            <div class="step-block__content">
+                                <h4>Extract the search query</h4>
+                                <p>Connect a <strong>Set</strong> node to Output 3 of the Switch node. Extract the query:</p>
+                                <pre><code>{{ $json.message.text.replace('/search ', '').trim() }}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__number">2</div>
+                            <div class="step-block__content">
+                                <h4>Call the search API</h4>
+                                <p>Add an <strong>HTTP Request</strong> node with:</p>
+                                <ul>
+                                    <li><strong>Method:</strong> GET</li>
+                                    <li><strong>URL:</strong> <code>https://api.duckduckgo.com/?q={{ encodeURIComponent($json.query) }}&format=json&no_html=1</code></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__number">3</div>
+                            <div class="step-block__content">
+                                <h4>Format and send results</h4>
+                                <p>Add a <strong>Telegram</strong> node. Parse the API response to extract the <code>AbstractText</code> and <code>AbstractURL</code> fields. Send a formatted message with the summary and a link to full results.</p>
+                            </div>
+                        </div>
+
+                        <p>If DuckDuckGo does not return a result for a query (it only answers factual queries), add an <strong>IF</strong> node to check whether the response is empty. If it is, send a fallback message like "No instant answer found. Try a more specific query." This kind of error handling makes your bot feel polished and professional.</p>
+                    </section>
+
+                    <!-- Step 7 -->
+                    <section id="step7">
+                        <h2>Step 7: Deploy and Test Your Bot</h2>
+                        <p>Your workflow is complete. Time to make it live and verify everything works.</p>
+
+                        <div class="step-block">
+                            <div class="step-block__number">1</div>
+                            <div class="step-block__content">
+                                <h4>Test manually first</h4>
+                                <p>Click <strong>"Execute Workflow"</strong> in n8n, then go to Telegram and send <code>/start</code> to your bot. Switch back to n8n and check if the Telegram Trigger node received the message. Inspect the data flowing through each node.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__number">2</div>
+                            <div class="step-block__content">
+                                <h4>Test every command</h4>
+                                <p>Send each command to your bot and verify the responses:</p>
+                                <ul>
+                                    <li><code>/start</code> &mdash; should show the welcome message</li>
+                                    <li><code>/help</code> &mdash; should list all available commands</li>
+                                    <li><code>/weather Tokyo</code> &mdash; should return current weather</li>
+                                    <li><code>/search artificial intelligence</code> &mdash; should return search results</li>
+                                    <li>Random text &mdash; should trigger the fallback/default response</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__number">3</div>
+                            <div class="step-block__content">
+                                <h4>Activate the workflow</h4>
+                                <p>Once everything checks out, toggle the <strong>"Active"</strong> switch in the top right corner of n8n. Your bot is now running 24/7. On n8n Cloud, it stays active even when you close the browser. For self-hosted, make sure your Docker container or server stays running.</p>
+                            </div>
+                        </div>
+
+                        <p>Monitor your bot's activity from the <strong>"Executions"</strong> tab in n8n. This shows a log of every message received and every action taken. If any errors occur, you will see the exact node that failed and the error message, making debugging straightforward.</p>
+                    </section>
+
+                    <!-- Advanced Bot Ideas -->
+                    <section id="advanced-ideas">
+                        <h2>3 Advanced Bot Ideas to Build Next</h2>
+                        <p>Once you have mastered the basics, here are three powerful bots you can build with the same no-code approach.</p>
+
+                        <h3>1. Expense Tracker Bot (Telegram to Google Sheets)</h3>
+                        <p>Build a personal finance bot that logs expenses directly to a Google Sheets spreadsheet. The user sends a message like <code>Coffee 4.50</code> or <code>/expense Lunch 12.00</code>, and the bot automatically parses the description and amount, adds a timestamp, and appends a new row to your spreadsheet.</p>
+                        <p><strong>Workflow structure:</strong></p>
+                        <pre><code>Telegram Trigger
+  &rarr; Set Node (parse description + amount from message)
+  &rarr; Google Sheets: Append Row
+      - Column A: Date/Time
+      - Column B: Description
+      - Column C: Amount
+      - Column D: Category (optional, use IF node)
+  &rarr; Telegram: Send confirmation
+      "Logged: Coffee $4.50 on March 12, 2026"</code></pre>
+                        <p>You can extend this with a <code>/report</code> command that reads the last 30 days of expenses from the sheet and sends a formatted summary. Add category detection using keyword matching: "coffee" and "lunch" go to "Food", "uber" goes to "Transport", and so on.</p>
+
+                        <h3>2. Daily News Digest Bot (RSS to Telegram)</h3>
+                        <p>Create a bot that delivers a curated news digest to your Telegram chat every morning at 8 AM. Instead of checking multiple news sites, your bot aggregates headlines from RSS feeds and sends them in a single formatted message.</p>
+                        <p><strong>Workflow structure:</strong></p>
+                        <pre><code>Schedule Trigger (every day at 8:00 AM)
+  &rarr; RSS Feed Read (TechCrunch feed URL)
+  &rarr; RSS Feed Read (Hacker News feed URL)
+  &rarr; Merge Node (combine all items)
+  &rarr; Limit Node (top 10 articles)
+  &rarr; Code Node (format as numbered list)
+  &rarr; Telegram: Send Message to your chat ID
+      "Good morning! Here are today's top stories:
+       1. [Title] - Source
+       2. [Title] - Source
+       ..."</code></pre>
+                        <p>Since this uses a Schedule Trigger instead of a Telegram Trigger, it runs automatically without user input. You can add multiple RSS feeds for different topics and use the <strong>Merge</strong> node to combine them all.</p>
+
+                        <h3>3. Task Manager Bot (Telegram to Notion)</h3>
+                        <p>Turn your Telegram into a quick-capture tool for your Notion task database. Send a message like <code>/task Write blog post about n8n</code> and the bot creates a new page in your Notion Tasks database with the title, timestamp, and a default "To Do" status.</p>
+                        <p><strong>Workflow structure:</strong></p>
+                        <pre><code>Telegram Trigger (filter: starts with /task)
+  &rarr; Set Node (extract task title from message)
+  &rarr; Notion: Create Database Page
+      - Title: {{ $json.taskTitle }}
+      - Status: "To Do"
+      - Created: {{ $now }}
+      - Source: "Telegram"
+  &rarr; Telegram: Send confirmation
+      "Task created: Write blog post about n8n"</code></pre>
+                        <p>Extend it further with <code>/tasks</code> to list your open tasks, <code>/done [task number]</code> to mark tasks complete, and <code>/priority [task] high</code> to set priority levels. Each command gets its own branch in the Switch node.</p>
+                    </section>
+
+                    <!-- Troubleshooting -->
+                    <section id="troubleshooting">
+                        <h2>Troubleshooting Common Issues</h2>
+
+                        <h3>Webhook Not Registering</h3>
+                        <p><strong>Problem:</strong> Your bot does not respond to any messages even though the workflow is active.</p>
+                        <p><strong>Solution:</strong> Telegram webhooks require HTTPS. If you are self-hosting n8n, make sure it is behind a reverse proxy with a valid SSL certificate. On n8n Cloud, this is handled automatically. You can also verify the webhook status by visiting <code>https://api.telegram.org/bot&lt;YOUR_TOKEN&gt;/getWebhookInfo</code> in your browser. If the <code>url</code> field is empty, the webhook was not set. Try deactivating and reactivating the workflow in n8n.</p>
+
+                        <h3>Bot Not Responding to Commands</h3>
+                        <p><strong>Problem:</strong> The bot receives messages (you can see executions in n8n) but does not send replies.</p>
+                        <p><strong>Solution:</strong> Check the Chat ID expression in your Telegram response nodes. It must be <code>{{ $json.message.chat.id }}</code>. A common mistake is using <code>$json.chat.id</code> without the <code>message</code> level. Also verify that your Switch node conditions match exactly: <code>/start</code> with a lowercase <code>s</code>, no trailing spaces.</p>
+
+                        <h3>Rate Limiting from Telegram</h3>
+                        <p><strong>Problem:</strong> Your bot starts returning "429 Too Many Requests" errors.</p>
+                        <p><strong>Solution:</strong> Telegram limits bots to approximately 30 messages per second to different chats and 1 message per second to the same chat. If your bot is in a group with many users, add a <strong>Wait</strong> node (1 second delay) between consecutive Telegram send nodes. For high-traffic bots, batch messages together instead of sending multiple short messages.</p>
+
+                        <h3>Weather or Search API Returns Errors</h3>
+                        <p><strong>Problem:</strong> The HTTP Request node fails with connection errors or empty responses.</p>
+                        <p><strong>Solution:</strong> Add error handling to your workflow. Enable <strong>"Continue On Fail"</strong> on the HTTP Request node, then add an IF node after it to check whether the response contains data. If the API failed, send a friendly error message to the user instead of crashing the workflow silently. Also check that the city name or search query does not contain special characters that break the URL.</p>
+                    </section>
+
+                    <!-- CTA -->
+                    <div class="cta-box">
+                        <h3 class="cta-box__title">Build Your First Bot Today</h3>
+                        <p class="cta-box__text">With n8n, you can create powerful Telegram bots in minutes without writing a single line of code. Start with the free plan and scale as you grow.</p>
+                        <a href="https://n8n.io" target="_blank" rel="noopener sponsored" class="cta-button"><span>Try n8n Free</span></a>
+                        <a href="n8n-vs-zapier.html" class="cta-button cta-button--secondary"><span>Compare n8n vs Zapier</span></a>
+                    </div>
+
+                    <!-- FAQ -->
+                    <section id="faq">
+                        <h2>Frequently Asked Questions</h2>
+
+                        <div class="step-block">
+                            <div class="step-block__content">
+                                <h4>Can I build a Telegram bot without coding?</h4>
+                                <p>Yes, absolutely. With n8n's visual workflow builder, you can create fully functional Telegram bots by connecting nodes in a drag-and-drop interface. No programming languages are required. You configure triggers, logic, and responses through simple forms and menus.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__content">
+                                <h4>Is n8n free for building Telegram bots?</h4>
+                                <p>n8n offers a free self-hosted option using Docker where you can run unlimited workflows including Telegram bots. The n8n Cloud free tier includes a limited number of executions per month. For most personal Telegram bots, the free self-hosted version handles the load without any issues.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__content">
+                                <h4>How do I get a Telegram Bot API token?</h4>
+                                <p>Open Telegram and search for <code>@BotFather</code>. Send the <code>/newbot</code> command, choose a display name and a unique username ending in "bot". BotFather will immediately reply with your HTTP API token. Copy this token and paste it into n8n's Telegram credential settings.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Author Bio -->
+                    <div class="author-card">
+                        <div>
+                            <div class="author-card__name">NoCodeFlow Team</div>
+                            <p class="author-card__bio">NoCodeFlow is dedicated to helping professionals and small businesses automate their workflows without code. We publish in-depth tutorials, tool comparisons, and practical guides covering the best no-code automation platforms, including n8n, Make.com, and Zapier. Our content is based on hands-on testing and real-world usage.</p>
+                        </div>
+                    </div>
+
+                    <!-- Related Articles -->
+                    <section>
+                        <h2>Related Articles</h2>
+                        <div class="cards-grid">
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3 class="card__title"><a href="/n8n-gmail-automation-tutorial.html">How to Automate Gmail with n8n</a></h3>
+                                    <p class="card__excerpt">Step-by-step guide to automating Gmail with triggers, filters, and auto-replies using n8n.</p>
+                                    <div class="card__footer"><a href="/n8n-gmail-automation-tutorial.html" class="card__read-more">Read more</a></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3 class="card__title"><a href="/n8n-vs-zapier.html">n8n vs Zapier: The Complete Comparison</a></h3>
+                                    <p class="card__excerpt">See how n8n stacks up against Zapier on features, pricing, and flexibility.</p>
+                                    <div class="card__footer"><a href="/n8n-vs-zapier.html" class="card__read-more">Read more</a></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3 class="card__title"><a href="/automate-google-sheets-make.html">Automate Google Sheets with Make.com</a></h3>
+                                    <p class="card__excerpt">Learn how to automate spreadsheet workflows with Make.com, step by step.</p>
+                                    <div class="card__footer"><a href="/automate-google-sheets-make.html" class="card__read-more">Read more</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="adsense-slot adsense-slot--in-article">Ad Space</div>
+                </div>
+            </article>
+
+            <aside class="toc" aria-label="Table of Contents">
+                <div class="toc__title">Table of Contents</div>
+                <nav class="toc__list">
+                    <a href="#introduction" class="toc__link">Why Build a Telegram Bot?</a>
+                    <a href="#prerequisites" class="toc__link">Prerequisites</a>
+                    <a href="#step1" class="toc__link">Step 1: Create Bot with BotFather</a>
+                    <a href="#step2" class="toc__link">Step 2: Telegram Trigger Node</a>
+                    <a href="#step3" class="toc__link">Step 3: Message Routing</a>
+                    <a href="#step4" class="toc__link">Step 4: /start and /help</a>
+                    <a href="#step5" class="toc__link">Step 5: Weather Command</a>
+                    <a href="#step6" class="toc__link">Step 6: Web Search Command</a>
+                    <a href="#step7" class="toc__link">Step 7: Deploy and Test</a>
+                    <a href="#advanced-ideas" class="toc__link">3 Advanced Bot Ideas</a>
+                    <a href="#troubleshooting" class="toc__link">Troubleshooting</a>
+                    <a href="#faq" class="toc__link">FAQ</a>
+                </nav>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__brand">
+                <div class="footer__logo"><span>NoCodeFlow</span></div>
+                <p class="footer__desc">Honest reviews, tutorials, and comparisons for no-code automation tools.</p>
+            </div>
+            <div>
+                <div class="footer__heading">Articles</div>
+                <div class="footer__links">
+                    <a href="/n8n-vs-zapier.html">n8n vs Zapier</a>
+                    <a href="/make-vs-zapier-pricing.html">Make vs Zapier</a>
+                    <a href="/best-free-automation-tools.html">Best Free Tools</a>
+                </div>
+            </div>
+            <div>
+                <div class="footer__heading">Tutorials</div>
+                <div class="footer__links">
+                    <a href="/n8n-gmail-automation-tutorial.html">Gmail Automation</a>
+                    <a href="/n8n-telegram-bot-tutorial.html">Telegram Bot</a>
+                    <a href="/automate-google-sheets-make.html">Google Sheets</a>
+                </div>
+            </div>
+            <div>
+                <div class="footer__heading">Company</div>
+                <div class="footer__links">
+                    <a href="/about.html">About</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <span>&copy; 2026 NoCodeFlow. All rights reserved.</span>
+                <span>v1.2.0</span>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+    <script>
+    (function() {
+        const toggle = document.getElementById('themeToggle');
+        const saved = localStorage.getItem('nocodeflow-theme');
+        if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.body.classList.add('dark');
+        }
+        toggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            localStorage.setItem('nocodeflow-theme', isDark ? 'dark' : 'light');
+        });
+
+        const hamburger = document.getElementById('navHamburger');
+        const mobile = document.getElementById('navMobile');
+        hamburger.addEventListener('click', function() { mobile.classList.toggle('is-open'); });
+
+        const progress = document.getElementById('readingProgress');
+        window.addEventListener('scroll', function() {
+            const docH = document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.width = (window.scrollY / docH) * 100 + '%';
+        });
+
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) btn.classList.add('is-visible');
+            else btn.classList.remove('is-visible');
+        });
+        btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    })();
+    </script>
+</body>
+</html>
