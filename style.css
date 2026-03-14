@@ -1074,7 +1074,9 @@ pre code {
    15. CTA AFFILIATE BUTTONS
    ──────────────────────────────────────────────────────────── */
 
-.cta-button {
+.cta-button,
+a.cta-button,
+a.cta-button:visited {
   display: inline-flex;
   align-items: center;
   justify-content: center;
