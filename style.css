@@ -829,6 +829,12 @@ body.dark .badge--accent {
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.article__content a.cta-button,
+.article__content a.cta-button:visited {
+  color: #FFFFFF;
+  text-decoration: none;
   text-decoration-thickness: 1px;
 }
 
