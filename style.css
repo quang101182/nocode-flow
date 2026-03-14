@@ -832,10 +832,18 @@ body.dark .badge--accent {
 }
 
 .article__content a.cta-button,
-.article__content a.cta-button:visited {
-  color: #FFFFFF;
-  text-decoration: none;
-  text-decoration-thickness: 1px;
+.article__content a.cta-button:visited,
+.cta-box a.cta-button,
+.cta-box a.cta-button:visited {
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+}
+
+.cta-button span,
+a.cta-button span,
+.article__content a.cta-button span,
+.cta-box a.cta-button span {
+  color: #FFFFFF !important;
 }
 
 @media (hover: hover) {
