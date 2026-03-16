@@ -829,7 +829,21 @@ body.dark .badge--accent {
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
+}
+
+.article__content a.cta-button,
+.article__content a.cta-button:visited,
+.cta-box a.cta-button,
+.cta-box a.cta-button:visited {
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+}
+
+.cta-button span,
+a.cta-button span,
+.article__content a.cta-button span,
+.cta-box a.cta-button span {
+  color: #FFFFFF !important;
 }
 
 @media (hover: hover) {
@@ -1074,7 +1088,9 @@ pre code {
    15. CTA AFFILIATE BUTTONS
    ──────────────────────────────────────────────────────────── */
 
-.cta-button {
+.cta-button,
+a.cta-button,
+a.cta-button:visited {
   display: inline-flex;
   align-items: center;
   justify-content: center;

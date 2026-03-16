@@ -268,6 +268,19 @@
           </div>
         </article>
 
+        <!-- Article 15 -->
+        <article class="card" data-category="tutorial">
+          <div class="card__body">
+            <span class="badge badge--outline">Tutorial</span>
+            <h3 class="card__title"><a href="telegram-voice-transcription-bot.html">How to Transcribe Telegram Voice Messages Instantly with AI (Free Bot)</a></h3>
+            <p class="card__excerpt">Turn any Telegram voice message into searchable text in seconds. VoiceBox is a free AI bot powered by Whisper that supports 50+ languages with instant transcription.</p>
+          </div>
+          <div class="card__footer">
+            <span class="card__meta">6 min read</span>
+            <a href="telegram-voice-transcription-bot.html" class="card__read-more">Read More &rarr;</a>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -301,6 +314,18 @@
         <a href="n8n-vs-zapier.html">n8n vs Zapier</a>
         <a href="make-vs-zapier-pricing.html">Make vs Zapier</a>
         <a href="best-free-automation-tools.html">Free Tools</a>
+      </div>
+      <div class="footer__links">
+        <h4 class="footer__heading">Our Tools</h4>
+        <a href="https://sub-whisper.com" target="_blank">SubWhisper Pro</a>
+        <a href="https://t.me/VoiceBoxTranscBot" target="_blank">VoiceBox Bot</a>
+        <a href="https://voicebox-bot.fly.dev" target="_blank">VoiceBox Web</a>
+        <a href="https://noteflowing.com" target="_blank">NoteFlowing</a>
+      </div>
+      <div class="footer__links">
+        <h4 class="footer__heading">Follow Us</h4>
+        <a href="https://www.tiktok.com/@se7en.video.ai" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://linktr.ee/se7enai" target="_blank" rel="noopener">Linktree</a>
       </div>
       <div class="footer__bottom">
         <div class="affiliate-disclosure">

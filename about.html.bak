@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- NoCodeFlow | About | v1.3.0 -->
+<!-- NoCodeFlow | About | v1.2.0 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,13 +17,11 @@
     <meta property="og:url" content="https://nocode-flow.com/about.html">
     <meta property="og:site_name" content="NoCodeFlow">
     <meta property="og:locale" content="en_US">
-    <meta property="og:image" content="https://nocode-flow.com/og-image.svg">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="About NoCodeFlow — Your Guide to No-Code Automation">
     <meta name="twitter:description" content="NoCodeFlow helps you automate workflows without code. Honest reviews, hands-on tutorials, real recommendations.">
-    <meta name="twitter:image" content="https://nocode-flow.com/og-image.svg">
 
     <link rel="stylesheet" href="style.css">
 
@@ -85,7 +83,7 @@
                 <div class="article__content">
                     <!-- Mission -->
                     <section>
-                        <h2 id="our-mission">Our Mission</h2>
+                        <h2>Our Mission</h2>
                         <p>NoCodeFlow exists to help people automate their work without writing a single line of code.</p>
                         <p>We believe that automation should be accessible to everyone, not just software developers. Whether you are a solo entrepreneur trying to streamline your email workflows, a marketing team looking to automate social media posting, or a small business owner who wants to connect your apps and eliminate manual data entry, you should be able to build powerful automations using visual, drag-and-drop tools.</p>
                         <p>Our goal is to be the most practical, hands-on resource for no-code automation. Every tutorial we publish is based on real setups we have built and tested ourselves. Every tool comparison includes honest assessments of both strengths and weaknesses. We do not write fluff or theoretical overviews. We write step-by-step guides that you can follow and have a working automation by the time you finish reading.</p>
@@ -93,7 +91,7 @@
 
                     <!-- What We Cover -->
                     <section>
-                        <h2 id="what-we-cover">What We Cover</h2>
+                        <h2>What We Cover</h2>
                         <p>NoCodeFlow focuses on three core content areas:</p>
 
                         <h3>Automation Tutorials</h3>
@@ -109,7 +107,7 @@
                     <!-- Affiliate Disclosure -->
                     <section>
                         <div class="affiliate-disclosure">
-                            <h2 id="affiliate-disclosure">Affiliate Disclosure</h2>
+                            <h2>Affiliate Disclosure</h2>
                             <p>Transparency is important to us. Here is how NoCodeFlow operates financially:</p>
                             <p><strong>Some links on this website are affiliate links.</strong> This means that if you click on a link and make a purchase or sign up for a service, we may earn a small commission at no extra cost to you. The price you pay remains exactly the same whether you use our affiliate link or go directly to the product's website.</p>
                             <p>This affiliate revenue helps us keep NoCodeFlow running, pay for the tools we test, and continue publishing free content.</p>
@@ -121,7 +119,7 @@
 
                     <!-- Contact -->
                     <section>
-                        <h2 id="contact-us">Contact Us</h2>
+                        <h2>Contact Us</h2>
                         <p>Have a question, suggestion, or feedback? We would love to hear from you.</p>
                         <p><strong>Email:</strong> <a href="mailto:hello@nocodeflow.com">hello@nocodeflow.com</a></p>
                         <p>We read every email and do our best to respond within 48 hours. Whether you need help with a tutorial, want to suggest a topic, or found an error in one of our guides, do not hesitate to reach out.</p>
@@ -129,7 +127,7 @@
 
                     <!-- Popular Articles -->
                     <section>
-                        <h2 id="start-here">Start Here</h2>
+                        <h2>Start Here</h2>
                         <p>New to NoCodeFlow? Here are our most popular articles to get you started:</p>
                         <ul>
                             <li><a href="/best-free-automation-tools.html">7 Best Free Automation Tools in 2026</a> &mdash; Find the right tool for your budget</li>
@@ -145,27 +143,15 @@
             <aside class="toc" aria-label="Page navigation">
                 <div class="toc__title">On This Page</div>
                 <nav class="toc__list">
-                    <a href="#our-mission" class="toc__link">Our Mission</a>
-                    <a href="#what-we-cover" class="toc__link">What We Cover</a>
-                    <a href="#affiliate-disclosure" class="toc__link">Affiliate Disclosure</a>
-                    <a href="#contact-us" class="toc__link">Contact Us</a>
-                    <a href="#start-here" class="toc__link">Start Here</a>
+                    <a href="#" class="toc__link">Our Mission</a>
+                    <a href="#" class="toc__link">What We Cover</a>
+                    <a href="#" class="toc__link">Affiliate Disclosure</a>
+                    <a href="#" class="toc__link">Contact Us</a>
+                    <a href="#" class="toc__link">Start Here</a>
                 </nav>
             </aside>
         </div>
     </main>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <h2 class="newsletter__title">Stay in the Loop</h2>
-            <p class="newsletter__text">Get weekly no-code tips, tool reviews, and automation tutorials. No spam, unsubscribe anytime.</p>
-            <form class="newsletter__form" action="https://nocode-flow.com/subscribe" method="POST" onsubmit="event.preventDefault();this.querySelector('button').textContent='Coming soon!';setTimeout(()=>this.querySelector('button').textContent='Subscribe',3000)">
-                <input type="email" class="newsletter__input" placeholder="your@email.com" required>
-                <button type="submit" class="newsletter__submit">Subscribe</button>
-            </form>
-        </div>
-    </section>
 
     <footer class="footer">
         <div class="container">
@@ -194,16 +180,9 @@
                     <a href="/about.html">About</a>
                 </div>
             </div>
-            <div>
-                <div class="footer__heading">Follow Us</div>
-                <div class="footer__links">
-                    <a href="https://www.tiktok.com/@se7en.video.ai" target="_blank" rel="noopener">TikTok</a>
-                    <a href="https://linktr.ee/se7enai" target="_blank" rel="noopener">Linktree</a>
-                </div>
-            </div>
             <div class="footer__bottom">
                 <span>&copy; 2026 NoCodeFlow. All rights reserved.</span>
-                <span>v1.3.0</span>
+                <span>v1.2.0</span>
             </div>
         </div>
     </footer>
