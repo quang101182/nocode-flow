@@ -162,7 +162,7 @@
         <div class="container">
             <h2 class="newsletter__title">Stay in the Loop</h2>
             <p class="newsletter__text">Get weekly no-code tips, tool reviews, and automation tutorials. No spam, unsubscribe anytime.</p>
-            <form class="newsletter__form" action="https://nocode-flow.com/subscribe" method="POST" onsubmit="event.preventDefault();this.querySelector('button').textContent='Coming soon!';setTimeout(()=>this.querySelector('button').textContent='Subscribe',3000)">
+            <form class="newsletter__form" onsubmit="event.preventDefault();const b=this.querySelector('button'),e=this.querySelector('input');b.disabled=true;b.textContent='Sending...';fetch('https://api-gateway-pro.quang101182.workers.dev/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:e.value})}).then(r=>r.json()).then(d=>{b.textContent=d.ok?'Subscribed!':'Error';if(d.ok)e.value='';setTimeout(()=>{b.textContent='Subscribe';b.disabled=false},3000)}).catch(()=>{b.textContent='Error';setTimeout(()=>{b.textContent='Subscribe';b.disabled=false},3000)})">
                 <input type="email" class="newsletter__input" placeholder="your@email.com" required>
                 <button type="submit" class="newsletter__submit">Subscribe</button>
             </form>
