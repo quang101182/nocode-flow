@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<!-- NoCodeFlow | 15 n8n Automation Examples | v1.3.0 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Powerful n8n Automation Examples You Can Build Today [2026] | NoCodeFlow</title>
+    <meta name="description" content="Discover 15 powerful n8n automation examples you can build today. From Gmail and Slack to CRM, invoicing, and AI workflows — complete with difficulty ratings and step-by-step summaries.">
+    <meta name="keywords" content="n8n automation examples, n8n workflows, n8n use cases, n8n tutorial, n8n gmail automation, n8n slack integration, n8n crm automation, no-code automation examples">
+    <meta name="author" content="NoCodeFlow">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nocode-flow.com/n8n-automation-examples.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="15 Powerful n8n Automation Examples You Can Build Today [2026]">
+    <meta property="og:description" content="Discover 15 real n8n automation examples with difficulty ratings, tools needed, and step-by-step summaries. Build powerful workflows without code.">
+    <meta property="og:url" content="https://nocode-flow.com/n8n-automation-examples.html">
+    <meta property="og:site_name" content="NoCodeFlow">
+    <meta property="og:image" content="https://nocode-flow.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="2026-04-03T00:00:00Z">
+    <meta property="article:author" content="NoCodeFlow">
+    <meta property="article:section" content="Tutorials">
+    <meta property="article:tag" content="n8n">
+    <meta property="article:tag" content="automation">
+    <meta property="article:tag" content="examples">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="15 Powerful n8n Automation Examples You Can Build Today [2026]">
+    <meta name="twitter:description" content="15 real n8n automation examples with step-by-step guidance. Gmail, Slack, CRM, invoicing, AI, and more.">
+    <meta name="twitter:image" content="https://nocode-flow.com/og-image.png">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Article JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "15 Powerful n8n Automation Examples You Can Build Today [2026]",
+        "description": "Discover 15 practical n8n automation examples covering email, Slack, CRM, social media, invoicing, monitoring, and AI workflows. Each example includes difficulty level, tools needed, and step-by-step summaries.",
+        "author": {
+            "@type": "Organization",
+            "name": "NoCodeFlow",
+            "url": "https://nocode-flow.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "NoCodeFlow"
+        },
+        "datePublished": "2026-04-03",
+        "dateModified": "2026-04-03",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://nocode-flow.com/n8n-automation-examples.html"
+        }
+    }
+    </script>
+
+    <!-- FAQ JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is n8n free to use for automation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. n8n is open-source and completely free when self-hosted with Docker. n8n Cloud offers a free tier with 5 active workflows and 2,500 executions per month. For most of the examples in this article, the free tier or self-hosting is sufficient."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many automations can I run with n8n?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Self-hosted n8n has no limits on the number of workflows or executions. n8n Cloud free tier allows 5 active workflows. Paid plans start at $20/month for unlimited active workflows. You can run all 15 examples in this article simultaneously on a self-hosted instance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need coding skills to build n8n automations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. All 15 examples in this article can be built entirely through n8n's visual drag-and-drop interface without writing any code. However, n8n does support custom JavaScript and Python for advanced use cases."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can n8n replace Zapier?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For most use cases, yes. n8n supports 400+ integrations, offers more flexibility with branching and looping, and is significantly cheaper (free when self-hosted). Zapier still has more pre-built integrations (7,000+), but n8n's HTTP Request node can connect to any API."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the easiest n8n automation to start with?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Gmail-to-Google Sheets logger (Example 1 in this article) is the easiest starting point. It uses only two nodes, requires no complex logic, and gives you visible results immediately. Most beginners can build it in under 10 minutes."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- BreadcrumbList JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://nocode-flow.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Tutorials",
+                "item": "https://nocode-flow.com/#articles"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "15 n8n Automation Examples",
+                "item": "https://nocode-flow.com/n8n-automation-examples.html"
+            }
+        ]
+    }
+    </script>
+
+<!-- PostHog Analytics -->
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageviewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_xjwSr0DOxL83qRLQDZkFEOoZA8ex5yYRUKbVxHfqb2Q', {
+    api_host: 'https://posthog-proxy.quang101182.workers.dev',
+    ui_host: 'https://us.posthog.com',
+    person_profiles: 'identified_only'
+  })
+</script>
+</head>
+<body>
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar__logo"><span>NoCodeFlow</span></a>
+            <div class="navbar__links">
+                <a href="/">Home</a>
+                <a href="/best-free-automation-tools.html">Tools</a>
+                <a href="/about.html">About</a>
+            </div>
+            <div class="navbar__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="theme-toggle__icon theme-toggle__icon--sun">&#9788;</span>
+                    <span class="theme-toggle__icon theme-toggle__icon--moon">&#9790;</span>
+                </button>
+                <button class="navbar__hamburger" id="navHamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="navbar__mobile" id="navMobile">
+        <a href="/">Home</a>
+        <a href="/best-free-automation-tools.html">Tools</a>
+        <a href="/about.html">About</a>
+    </div>
+
+    <main>
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span class="breadcrumbs__separator">&rsaquo;</span>
+                <span>Tutorials</span>
+                <span class="breadcrumbs__separator">&rsaquo;</span>
+                <span class="breadcrumbs__current">15 n8n Automation Examples</span>
+            </nav>
+        </div>
+
+        <div class="article-layout">
+            <article class="article">
+                <header class="article__header">
+                    <h1 class="article__title">15 Powerful n8n Automation Examples You Can Build Today</h1>
+                    <div class="article__meta">
+                        <span>Published April 3, 2026</span>
+                        <span class="article__meta-separator"></span>
+                        <span>18 min read</span>
+                        <span class="article__meta-separator"></span>
+                        <span>Tutorial / Roundup</span>
+                    </div>
+                </header>
+
+                <div class="affiliate-disclosure">
+                    <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links. We may earn a commission at no extra cost to you. We only recommend tools we personally use and trust.
+                </div>
+
+                <div class="article__content">
+                    <!-- Introduction -->
+                    <section id="introduction">
+                        <h2>Why n8n Is the Best Platform for Building Automations in 2026</h2>
+                        <p><a href="https://n8n.io" target="_blank" rel="noopener sponsored">n8n</a> has quietly become the most powerful no-code automation platform available. It is open-source, self-hostable, and ships with 400+ built-in integrations &mdash; from Gmail and Slack to Stripe, Notion, and OpenAI. Unlike Zapier, which charges per task, n8n lets you run unlimited executions when self-hosted.</p>
+                        <p>But the real power of n8n is its flexibility. It supports branching, looping, error handling, sub-workflows, and even custom JavaScript &mdash; all through a visual drag-and-drop canvas. Whether you are a solopreneur automating repetitive tasks or a startup building complex data pipelines, n8n can handle it.</p>
+                        <p>In this article, we cover <strong>15 real-world n8n automation examples</strong> across email, messaging, CRM, social media, invoicing, monitoring, and AI. For each example, you will find the difficulty level, required tools, estimated build time, and a summary of the key steps. Let us dive in.</p>
+                    </section>
+
+                    <!-- Example 1 -->
+                    <section id="example1">
+                        <h2>1. Gmail-to-Google Sheets Email Logger</h2>
+                        <p><strong>Difficulty:</strong> Beginner &bull; <strong>Build time:</strong> 10 minutes &bull; <strong>Tools:</strong> Gmail, Google Sheets</p>
+                        <p>This is the perfect first automation. Every time a new email arrives in your Gmail inbox, n8n logs the sender, subject, date, and a snippet of the body into a Google Sheets spreadsheet. It is useful for tracking inquiries, job applications, or customer requests without manually copying anything.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Gmail Trigger node</strong> &mdash; watches your inbox for new emails. You can filter by label (e.g., only "Primary" inbox) to avoid logging spam</li>
+                            <li><strong>Google Sheets node</strong> &mdash; appends a new row with columns for Date, From, Subject, and Body Snippet</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Add a <strong>Filter node</strong> between Gmail and Sheets to only log emails from specific domains (e.g., <code>@client.com</code>)</li>
+                            <li>Use n8n's built-in date formatting to convert timestamps to your preferred format</li>
+                            <li>Add a third node to send a Slack notification when a VIP email arrives</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 2 -->
+                    <section id="example2">
+                        <h2>2. Slack Channel Notification from Form Submissions</h2>
+                        <p><strong>Difficulty:</strong> Beginner &bull; <strong>Build time:</strong> 15 minutes &bull; <strong>Tools:</strong> Typeform/Google Forms, Slack</p>
+                        <p>When someone fills out a contact form or survey, n8n instantly posts the submission to a designated Slack channel. Your team gets notified in real time without checking the form dashboard.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Webhook node</strong> &mdash; receives form submissions via webhook URL (most form tools support webhook integrations)</li>
+                            <li><strong>Set node</strong> &mdash; formats the data into a clean message structure</li>
+                            <li><strong>Slack node</strong> &mdash; posts a formatted message to your chosen channel with the respondent's name, email, and message</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Use Slack's <strong>Block Kit</strong> formatting for rich messages with sections, buttons, and colored sidebars</li>
+                            <li>Add conditional routing: sales inquiries go to #sales, support requests go to #support</li>
+                            <li>Include a "Reply" button in the Slack message that opens a pre-filled email draft</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 3 -->
+                    <section id="example3">
+                        <h2>3. Automated CRM Lead Capture</h2>
+                        <p><strong>Difficulty:</strong> Beginner &bull; <strong>Build time:</strong> 20 minutes &bull; <strong>Tools:</strong> Webhook/Typeform, HubSpot/Pipedrive, Gmail</p>
+                        <p>Automatically create a new contact in your CRM whenever a lead fills out a form or signs up on your website. No more manual data entry, no more leads slipping through the cracks.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Webhook node</strong> &mdash; captures the lead's name, email, company, and source</li>
+                            <li><strong>IF node</strong> &mdash; checks if the contact already exists in your CRM (avoids duplicates)</li>
+                            <li><strong>HubSpot/Pipedrive node</strong> &mdash; creates a new contact with all fields mapped</li>
+                            <li><strong>Gmail node</strong> &mdash; sends a personalized welcome email to the new lead</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Add lead scoring based on company size or source channel using a <strong>Function node</strong></li>
+                            <li>Automatically assign the lead to a sales rep based on territory or product interest</li>
+                            <li>Log every new lead to a Google Sheet as a backup and for reporting</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 4 -->
+                    <section id="example4">
+                        <h2>4. Social Media Cross-Posting</h2>
+                        <p><strong>Difficulty:</strong> Intermediate &bull; <strong>Build time:</strong> 30 minutes &bull; <strong>Tools:</strong> RSS/Webhook, Twitter API, LinkedIn, Telegram</p>
+                        <p>Write a post once, publish it everywhere. This workflow takes a new blog post (via RSS feed or webhook) and automatically shares it on Twitter/X, LinkedIn, and Telegram with platform-specific formatting.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>RSS Feed Trigger</strong> &mdash; monitors your blog's RSS feed for new posts</li>
+                            <li><strong>Set node</strong> &mdash; extracts the title, URL, description, and featured image</li>
+                            <li><strong>Split into batches</strong> &mdash; three parallel branches for each platform</li>
+                            <li><strong>Twitter node</strong> &mdash; posts a tweet with the title and URL (280 character limit)</li>
+                            <li><strong>HTTP Request node</strong> &mdash; posts to LinkedIn via their API with a longer description</li>
+                            <li><strong>Telegram node</strong> &mdash; sends a formatted message to your channel with rich preview</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Use an <strong>AI node</strong> to generate platform-specific captions (short for Twitter, professional for LinkedIn)</li>
+                            <li>Add a 15-minute delay between platforms to avoid looking like a bot</li>
+                            <li>Store post history in a database to prevent duplicate posting</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 5 -->
+                    <section id="example5">
+                        <h2>5. Automated Invoice Generation and Delivery</h2>
+                        <p><strong>Difficulty:</strong> Intermediate &bull; <strong>Build time:</strong> 45 minutes &bull; <strong>Tools:</strong> Stripe/PayPal, Google Docs, Gmail, Google Drive</p>
+                        <p>When a customer makes a payment through Stripe, n8n automatically generates a professional invoice from a Google Docs template, saves it to Drive, and emails it to the customer. No more manual invoicing.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Stripe Trigger</strong> &mdash; fires when a payment is completed (<code>payment_intent.succeeded</code>)</li>
+                            <li><strong>Stripe node</strong> &mdash; fetches the full customer and payment details</li>
+                            <li><strong>Google Docs node</strong> &mdash; duplicates an invoice template and replaces placeholders with customer name, amount, date, and invoice number</li>
+                            <li><strong>Google Drive node</strong> &mdash; exports the document as PDF and saves it to an "Invoices" folder</li>
+                            <li><strong>Gmail node</strong> &mdash; sends the PDF invoice as an attachment to the customer</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Add sequential invoice numbering using n8n's <strong>Function node</strong> with a counter stored in a database</li>
+                            <li>Include a payment receipt link from Stripe in the email body</li>
+                            <li>Log all invoices to a Google Sheet for accounting and tax purposes</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 6 -->
+                    <section id="example6">
+                        <h2>6. Website Uptime Monitoring with Alerts</h2>
+                        <p><strong>Difficulty:</strong> Beginner &bull; <strong>Build time:</strong> 15 minutes &bull; <strong>Tools:</strong> HTTP Request, Slack/Telegram, Google Sheets</p>
+                        <p>Monitor your website (or any URL) every 5 minutes. If it returns a non-200 status code or takes longer than 3 seconds to respond, n8n immediately alerts you via Slack or Telegram. Free uptime monitoring without paying for Pingdom or UptimeRobot.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Cron Trigger</strong> &mdash; runs every 5 minutes (configurable)</li>
+                            <li><strong>HTTP Request node</strong> &mdash; sends a GET request to your URL and captures the status code and response time</li>
+                            <li><strong>IF node</strong> &mdash; checks if status code is not 200 or response time exceeds your threshold</li>
+                            <li><strong>Slack/Telegram node</strong> &mdash; sends an alert with the URL, status code, and response time</li>
+                            <li><strong>Google Sheets node</strong> &mdash; logs every check for uptime history and reporting</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Monitor multiple URLs by using a <strong>Split In Batches</strong> node with a list of endpoints</li>
+                            <li>Add a "recovery" notification when a previously down site comes back up</li>
+                            <li>Calculate monthly uptime percentage from the logged data</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 7 -->
+                    <section id="example7">
+                        <h2>7. Daily Automated Data Backup to Google Drive</h2>
+                        <p><strong>Difficulty:</strong> Intermediate &bull; <strong>Build time:</strong> 30 minutes &bull; <strong>Tools:</strong> Postgres/MySQL/Airtable, Google Drive, Slack</p>
+                        <p>Every night at 2 AM, n8n exports your critical data from a database or Airtable, creates a timestamped backup file, uploads it to Google Drive, and confirms the backup via Slack. Peace of mind, fully automated.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Cron Trigger</strong> &mdash; fires daily at 2:00 AM</li>
+                            <li><strong>Postgres/MySQL node</strong> &mdash; executes a query to export all records from critical tables</li>
+                            <li><strong>Spreadsheet File node</strong> &mdash; converts the data to CSV or XLSX format with a timestamp in the filename</li>
+                            <li><strong>Google Drive node</strong> &mdash; uploads the file to a "Backups" folder</li>
+                            <li><strong>Slack node</strong> &mdash; posts a confirmation with the file name, record count, and Drive link</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Add a cleanup step that deletes backups older than 30 days from Drive</li>
+                            <li>Compress the file with n8n's <strong>Compression node</strong> before uploading to save storage</li>
+                            <li>Add error handling: if the backup fails, send an urgent alert</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 8 -->
+                    <section id="example8">
+                        <h2>8. Lead Enrichment Pipeline</h2>
+                        <p><strong>Difficulty:</strong> Intermediate &bull; <strong>Build time:</strong> 40 minutes &bull; <strong>Tools:</strong> Webhook, Clearbit/Hunter.io API, HubSpot, Slack</p>
+                        <p>When a new lead signs up with just an email address, n8n automatically enriches their profile with company name, job title, LinkedIn URL, and company size using third-party enrichment APIs. The enriched data is pushed to your CRM and your sales team is notified.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Webhook node</strong> &mdash; receives the email address from your signup form</li>
+                            <li><strong>HTTP Request node</strong> &mdash; calls Clearbit or Hunter.io API with the email to get company and person data</li>
+                            <li><strong>Merge node</strong> &mdash; combines the original signup data with the enriched data</li>
+                            <li><strong>HubSpot node</strong> &mdash; creates or updates the contact with all enriched fields</li>
+                            <li><strong>Slack node</strong> &mdash; notifies the sales team with a rich summary of the new lead</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Add fallback: if Clearbit returns no data, try Hunter.io, then LinkedIn scraping</li>
+                            <li>Score leads automatically based on company size and industry</li>
+                            <li>Filter out free email domains (gmail.com, yahoo.com) for B2B pipelines</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 9 -->
+                    <section id="example9">
+                        <h2>9. AI-Powered Customer Support Auto-Responder</h2>
+                        <p><strong>Difficulty:</strong> Advanced &bull; <strong>Build time:</strong> 60 minutes &bull; <strong>Tools:</strong> Gmail/Zendesk, OpenAI, Slack, Google Sheets</p>
+                        <p>When a customer sends a support email, n8n uses GPT-4o to analyze the request, check your FAQ database for relevant answers, draft a response, and either send it automatically (for simple queries) or forward it to a human agent (for complex issues). This handles 60-70% of support tickets without human intervention.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Gmail Trigger</strong> &mdash; watches for new emails in your support inbox</li>
+                            <li><strong>Basic LLM Chain node</strong> &mdash; classifies the email as "simple" (password reset, pricing question) or "complex" (bug report, refund request)</li>
+                            <li><strong>IF node</strong> &mdash; routes simple queries to the auto-responder and complex queries to a human</li>
+                            <li><strong>AI Agent node</strong> &mdash; generates a response using your FAQ document as context (RAG approach)</li>
+                            <li><strong>Gmail node</strong> &mdash; sends the AI-drafted response for simple queries</li>
+                            <li><strong>Slack node</strong> &mdash; forwards complex queries to the support team with the AI's analysis</li>
+                            <li><strong>Google Sheets node</strong> &mdash; logs every interaction for quality monitoring</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Start with the auto-responder in "draft" mode &mdash; create drafts instead of sending, so you can review before sending</li>
+                            <li>Add a confidence score: only auto-send if the AI is 90%+ confident in its answer</li>
+                            <li>Use <strong>Window Buffer Memory</strong> to maintain context across multi-email conversations</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 10 -->
+                    <section id="example10">
+                        <h2>10. Automated Social Media Analytics Dashboard</h2>
+                        <p><strong>Difficulty:</strong> Intermediate &bull; <strong>Build time:</strong> 45 minutes &bull; <strong>Tools:</strong> Twitter API, Instagram API, Google Sheets, Slack</p>
+                        <p>Every Monday morning, n8n pulls your social media stats from Twitter and Instagram, compiles them into a Google Sheets dashboard, and sends a weekly summary to your Slack channel. Know exactly how your content is performing without manually checking each platform.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Cron Trigger</strong> &mdash; fires every Monday at 9:00 AM</li>
+                            <li><strong>HTTP Request nodes</strong> &mdash; fetch analytics data from Twitter API v2 and Instagram Graph API</li>
+                            <li><strong>Function node</strong> &mdash; calculates week-over-week growth, engagement rates, and top-performing posts</li>
+                            <li><strong>Google Sheets node</strong> &mdash; appends a new row to the analytics spreadsheet with all metrics</li>
+                            <li><strong>Slack node</strong> &mdash; posts a formatted weekly report with key metrics and trends</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Add LinkedIn and TikTok analytics for a complete cross-platform view</li>
+                            <li>Use Google Sheets charts to visualize trends over time</li>
+                            <li>Set up alerts for significant drops in engagement (more than 20% week-over-week)</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 11 -->
+                    <section id="example11">
+                        <h2>11. Notion Database Sync with Google Calendar</h2>
+                        <p><strong>Difficulty:</strong> Intermediate &bull; <strong>Build time:</strong> 35 minutes &bull; <strong>Tools:</strong> Notion, Google Calendar</p>
+                        <p>Keep your Notion project database and Google Calendar in perfect sync. When you create a task with a due date in Notion, n8n automatically creates a calendar event. When you update the date in Notion, the calendar event moves accordingly.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Notion Trigger</strong> &mdash; fires when a page is created or updated in your database</li>
+                            <li><strong>IF node</strong> &mdash; checks if the page has a due date and if it changed since the last sync</li>
+                            <li><strong>Google Calendar node</strong> &mdash; creates a new event or updates an existing one based on the Notion page ID stored as a custom property</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Add bidirectional sync: when a calendar event is moved, update the Notion date too</li>
+                            <li>Color-code calendar events based on Notion project or priority tags</li>
+                            <li>Include the Notion page URL in the calendar event description for quick access</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 12 -->
+                    <section id="example12">
+                        <h2>12. E-commerce Order Notification Pipeline</h2>
+                        <p><strong>Difficulty:</strong> Intermediate &bull; <strong>Build time:</strong> 40 minutes &bull; <strong>Tools:</strong> WooCommerce/Shopify, Slack, Gmail, Google Sheets</p>
+                        <p>Get instant notifications for every new order. n8n captures the order from your e-commerce platform, notifies your team on Slack, sends a confirmation email to the customer, and logs the order to a spreadsheet for accounting.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Webhook node</strong> &mdash; receives the order webhook from WooCommerce or Shopify</li>
+                            <li><strong>Set node</strong> &mdash; extracts and formats order details: customer name, products, total, shipping address</li>
+                            <li><strong>Slack node</strong> &mdash; posts a rich order summary to #orders channel with product details and total</li>
+                            <li><strong>Gmail node</strong> &mdash; sends a branded order confirmation email to the customer</li>
+                            <li><strong>Google Sheets node</strong> &mdash; appends the order to your sales tracking spreadsheet</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Add conditional logic for high-value orders (over $500) to send a personal follow-up email</li>
+                            <li>Track inventory levels and alert when stock falls below a threshold</li>
+                            <li>Generate daily sales summary reports using a separate Cron-triggered workflow</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 13 -->
+                    <section id="example13">
+                        <h2>13. RSS-to-Email Newsletter Curator</h2>
+                        <p><strong>Difficulty:</strong> Intermediate &bull; <strong>Build time:</strong> 45 minutes &bull; <strong>Tools:</strong> RSS Feeds, OpenAI, Gmail/Mailchimp</p>
+                        <p>Automatically curate a weekly newsletter from your favorite RSS feeds. n8n collects the latest articles, uses AI to write short summaries, compiles them into an HTML email, and sends it to your subscriber list. A hands-off newsletter that runs itself.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Cron Trigger</strong> &mdash; fires once a week (e.g., Friday at 3 PM)</li>
+                            <li><strong>RSS Feed Read nodes</strong> &mdash; fetch the 5 latest articles from each of your curated feeds</li>
+                            <li><strong>Merge node</strong> &mdash; combines all articles into a single list</li>
+                            <li><strong>Basic LLM Chain node</strong> &mdash; generates a 2-sentence summary for each article using GPT-4o-mini</li>
+                            <li><strong>HTML node</strong> &mdash; builds a formatted newsletter email with article titles, summaries, and links</li>
+                            <li><strong>Gmail/Mailchimp node</strong> &mdash; sends the compiled newsletter to your list</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Add a deduplication step to prevent featuring the same article twice across weeks</li>
+                            <li>Let the AI add a "Why it matters" sentence to each summary for more editorial voice</li>
+                            <li>Track open rates and click-through rates to refine your source selection over time</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 14 -->
+                    <section id="example14">
+                        <h2>14. GitHub Issue-to-Project-Board Automation</h2>
+                        <p><strong>Difficulty:</strong> Intermediate &bull; <strong>Build time:</strong> 25 minutes &bull; <strong>Tools:</strong> GitHub, Notion/Linear, Slack</p>
+                        <p>When a new issue is created in your GitHub repository, n8n automatically creates a task in your project management tool (Notion, Linear, or Trello), labels it based on the issue type, assigns it to the right team member, and notifies the team on Slack.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>GitHub Trigger</strong> &mdash; fires on new issue creation in your repository</li>
+                            <li><strong>Function node</strong> &mdash; parses the issue labels to determine priority and type (bug, feature, docs)</li>
+                            <li><strong>Notion/Linear node</strong> &mdash; creates a new task with the issue title, body, priority, and a link back to GitHub</li>
+                            <li><strong>Slack node</strong> &mdash; notifies the relevant channel with a summary and assignee</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Add bidirectional sync: when the task is completed in Linear, automatically close the GitHub issue</li>
+                            <li>Use AI to auto-label issues based on the title and description</li>
+                            <li>Track issue resolution time by logging creation and closure dates</li>
+                        </ul>
+                    </section>
+
+                    <!-- Example 15 -->
+                    <section id="example15">
+                        <h2>15. AI Content Repurposing Pipeline</h2>
+                        <p><strong>Difficulty:</strong> Advanced &bull; <strong>Build time:</strong> 60 minutes &bull; <strong>Tools:</strong> RSS/Webhook, OpenAI/Claude, Twitter, LinkedIn, Telegram, Google Docs</p>
+                        <p>Turn one blog post into five pieces of content. When you publish a new article, n8n reads the full text, uses AI to generate a Twitter thread, a LinkedIn post, a Telegram message, an email newsletter snippet, and a short summary for your portfolio page. Content repurposing on autopilot.</p>
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li><strong>Webhook/RSS Trigger</strong> &mdash; detects a new blog post</li>
+                            <li><strong>HTTP Request node</strong> &mdash; fetches the full article content</li>
+                            <li><strong>AI Agent node</strong> &mdash; generates 5 platform-specific content pieces with appropriate tone, length, and formatting</li>
+                            <li><strong>Split into branches</strong> &mdash; each branch handles one platform</li>
+                            <li><strong>Platform-specific nodes</strong> &mdash; publish to Twitter (thread), LinkedIn (post), Telegram (message)</li>
+                            <li><strong>Google Docs node</strong> &mdash; saves all generated content to a "Content Library" document</li>
+                        </ol>
+                        <h3>Pro Tips</h3>
+                        <ul>
+                            <li>Use Claude for longer, more nuanced content (LinkedIn posts) and GPT-4o-mini for short-form (tweets)</li>
+                            <li>Add a human review step: save drafts to Notion for approval before publishing</li>
+                            <li>Track which platform drives the most traffic back to your blog</li>
+                            <li>Schedule posts at optimal times for each platform using <strong>Wait nodes</strong></li>
+                        </ul>
+                    </section>
+
+                    <!-- Getting Started -->
+                    <section id="getting-started">
+                        <h2>How to Get Started with n8n</h2>
+                        <p>Ready to build your first automation? Here is how to get n8n up and running in under 5 minutes:</p>
+                        <h3>Option 1: n8n Cloud (Easiest)</h3>
+                        <p>Sign up at <a href="https://n8n.io" target="_blank" rel="noopener sponsored">n8n.io</a> for a free Cloud account. You get 5 active workflows and 2,500 executions per month. No setup, no server management. Perfect for trying out the examples above.</p>
+                        <h3>Option 2: Self-Host with Docker (Most Powerful)</h3>
+                        <p>Run a single command to start n8n on your machine:</p>
+                        <pre><code>docker run -it --rm -p 5678:5678 \
+  -v n8n_data:/home/node/.n8n \
+  n8nio/n8n</code></pre>
+                        <p>Open <code>http://localhost:5678</code> and you are ready to build. Self-hosting gives you unlimited workflows, unlimited executions, and full control over your data.</p>
+                        <h3>Which Examples to Build First</h3>
+                        <p>If you are completely new to n8n, start with these three in order:</p>
+                        <ol>
+                            <li><strong>Example 1</strong> (Gmail Logger) &mdash; learn the basics of triggers and nodes</li>
+                            <li><strong>Example 6</strong> (Uptime Monitor) &mdash; learn cron triggers and conditional logic</li>
+                            <li><strong>Example 9</strong> (AI Support) &mdash; explore AI capabilities and complex branching</li>
+                        </ol>
+                    </section>
+
+                    <!-- Comparison Table -->
+                    <section id="comparison">
+                        <h2>n8n vs Zapier vs Make: Which Tool for These Automations?</h2>
+                        <p>All 15 examples can be built in n8n, but how does it compare to alternatives?</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>n8n</th>
+                                    <th>Zapier</th>
+                                    <th>Make.com</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Self-hosting</td>
+                                    <td><strong>Yes (free)</strong></td>
+                                    <td>No</td>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                    <td>AI nodes (built-in)</td>
+                                    <td><strong>Yes (Agent, LLM, RAG)</strong></td>
+                                    <td>Limited</td>
+                                    <td>Basic</td>
+                                </tr>
+                                <tr>
+                                    <td>Price for 10,000 tasks/mo</td>
+                                    <td><strong>$0 (self-hosted)</strong></td>
+                                    <td>$69/month</td>
+                                    <td>$16/month</td>
+                                </tr>
+                                <tr>
+                                    <td>Branching &amp; looping</td>
+                                    <td><strong>Full support</strong></td>
+                                    <td>Limited (Paths)</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Custom code support</td>
+                                    <td><strong>JavaScript &amp; Python</strong></td>
+                                    <td>JavaScript only</td>
+                                    <td>Limited</td>
+                                </tr>
+                                <tr>
+                                    <td>Error handling</td>
+                                    <td><strong>Per-node error flows</strong></td>
+                                    <td>Basic retry</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Native integrations</td>
+                                    <td>400+</td>
+                                    <td><strong>7,000+</strong></td>
+                                    <td>1,500+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>For detailed comparisons, read our guides: <a href="/n8n-vs-zapier.html">n8n vs Zapier</a>, <a href="/n8n-vs-make.html">n8n vs Make.com</a>, or <a href="/n8n-vs-make-vs-zapier.html">n8n vs Make vs Zapier</a>.</p>
+                    </section>
+
+                    <!-- FAQ -->
+                    <section id="faq">
+                        <h2>Frequently Asked Questions</h2>
+
+                        <div class="step-block">
+                            <div class="step-block__content">
+                                <h4>Is n8n free to use for automation?</h4>
+                                <p>Yes. n8n is open-source and completely free when self-hosted with Docker. n8n Cloud offers a free tier with 5 active workflows and 2,500 executions per month. For most of the examples in this article, the free tier or self-hosting is sufficient.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__content">
+                                <h4>How many automations can I run with n8n?</h4>
+                                <p>Self-hosted n8n has no limits on the number of workflows or executions. n8n Cloud free tier allows 5 active workflows. Paid plans start at $20/month for unlimited active workflows. You can run all 15 examples in this article simultaneously on a self-hosted instance.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__content">
+                                <h4>Do I need coding skills to build n8n automations?</h4>
+                                <p>No. All 15 examples in this article can be built entirely through n8n's visual drag-and-drop interface without writing any code. However, n8n does support custom JavaScript and Python for advanced use cases.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__content">
+                                <h4>Can n8n replace Zapier?</h4>
+                                <p>For most use cases, yes. n8n supports 400+ integrations, offers more flexibility with branching and looping, and is significantly cheaper (free when self-hosted). Zapier still has more pre-built integrations (7,000+), but n8n's HTTP Request node can connect to any API. Read our full <a href="/n8n-vs-zapier.html">n8n vs Zapier comparison</a>.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-block">
+                            <div class="step-block__content">
+                                <h4>What is the easiest n8n automation to start with?</h4>
+                                <p>The Gmail-to-Google Sheets logger (Example 1 in this article) is the easiest starting point. It uses only two nodes, requires no complex logic, and gives you visible results immediately. Most beginners can build it in under 10 minutes.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Social Share -->
+                    <div class="social-share">
+                        <span class="social-share__label">Share this article:</span>
+                        <a class="social-share__btn social-share__btn--twitter" href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=550,height=420');return false">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            Tweet
+                        </a>
+                        <a class="social-share__btn social-share__btn--linkedin" href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank','width=550,height=420');return false">
+                            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            LinkedIn
+                        </a>
+                        <button class="social-share__btn social-share__btn--copy" onclick="navigator.clipboard.writeText(location.href).then(()=>{this.textContent='Copied!';setTimeout(()=>{this.innerHTML='<svg viewBox=&quot;0 0 24 24&quot;><path d=&quot;M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z&quot;/></svg> Copy link'},2000)})">
+                            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            Copy link
+                        </button>
+                    </div>
+
+                    <!-- Author Bio -->
+                    <div class="author-card">
+                        <div>
+                            <div class="author-card__name">NoCodeFlow Team</div>
+                            <p class="author-card__bio">NoCodeFlow is dedicated to helping professionals and small businesses automate their workflows without code. We publish in-depth tutorials, tool comparisons, and practical guides covering the best no-code automation platforms, including n8n, Make.com, and Zapier. Our content is based on hands-on testing and real-world usage.</p>
+                        </div>
+                    </div>
+
+                    <!-- Related Articles -->
+                    <section>
+                        <h2>Related Articles</h2>
+                        <div class="cards-grid">
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3 class="card__title"><a href="/n8n-ai-workflow-tutorial.html">How to Build AI Workflows with n8n</a></h3>
+                                    <p class="card__excerpt">Build AI-powered automations with n8n, OpenAI, and Claude. Complete step-by-step tutorial.</p>
+                                    <div class="card__footer"><a href="/n8n-ai-workflow-tutorial.html" class="card__read-more">Read more</a></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3 class="card__title"><a href="/n8n-gmail-automation-tutorial.html">How to Automate Gmail with n8n</a></h3>
+                                    <p class="card__excerpt">Step-by-step guide to building Gmail automation workflows in n8n in under 20 minutes.</p>
+                                    <div class="card__footer"><a href="/n8n-gmail-automation-tutorial.html" class="card__read-more">Read more</a></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3 class="card__title"><a href="/best-free-automation-tools.html">7 Best Free Automation Tools in 2026</a></h3>
+                                    <p class="card__excerpt">Build real workflows without spending a dime. Seven free tools tested and compared.</p>
+                                    <div class="card__footer"><a href="/best-free-automation-tools.html" class="card__read-more">Read more</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="adsense-slot adsense-slot--in-article">Ad Space</div>
+                </div>
+            </article>
+
+            <aside class="toc" aria-label="Table of Contents">
+                <div class="toc__title">Table of Contents</div>
+                <nav class="toc__list">
+                    <a href="#introduction" class="toc__link">Why n8n in 2026</a>
+                    <a href="#example1" class="toc__link">1. Gmail Logger</a>
+                    <a href="#example2" class="toc__link">2. Slack Notifications</a>
+                    <a href="#example3" class="toc__link">3. CRM Lead Capture</a>
+                    <a href="#example4" class="toc__link">4. Social Cross-Posting</a>
+                    <a href="#example5" class="toc__link">5. Invoice Generation</a>
+                    <a href="#example6" class="toc__link">6. Uptime Monitoring</a>
+                    <a href="#example7" class="toc__link">7. Data Backup</a>
+                    <a href="#example8" class="toc__link">8. Lead Enrichment</a>
+                    <a href="#example9" class="toc__link">9. AI Support</a>
+                    <a href="#example10" class="toc__link">10. Social Analytics</a>
+                    <a href="#example11" class="toc__link">11. Notion + Calendar</a>
+                    <a href="#example12" class="toc__link">12. E-commerce Orders</a>
+                    <a href="#example13" class="toc__link">13. Newsletter Curator</a>
+                    <a href="#example14" class="toc__link">14. GitHub to Board</a>
+                    <a href="#example15" class="toc__link">15. AI Content Repurposing</a>
+                    <a href="#getting-started" class="toc__link">Getting Started</a>
+                    <a href="#comparison" class="toc__link">n8n vs Zapier vs Make</a>
+                    <a href="#faq" class="toc__link">FAQ</a>
+                </nav>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__brand">
+                <div class="footer__logo"><span>NoCodeFlow</span></div>
+                <p class="footer__desc">Honest reviews, tutorials, and comparisons for no-code automation tools.</p>
+            </div>
+            <div>
+                <div class="footer__heading">Articles</div>
+                <div class="footer__links">
+                    <a href="/n8n-vs-zapier.html">n8n vs Zapier</a>
+                    <a href="/make-vs-zapier-pricing.html">Make vs Zapier</a>
+                    <a href="/best-free-automation-tools.html">Best Free Tools</a>
+                </div>
+            </div>
+            <div>
+                <div class="footer__heading">Tutorials</div>
+                <div class="footer__links">
+                    <a href="/n8n-gmail-automation-tutorial.html">Gmail Automation</a>
+                    <a href="/n8n-telegram-bot-tutorial.html">Telegram Bot</a>
+                    <a href="/automate-google-sheets-make.html">Google Sheets</a>
+                </div>
+            </div>
+            <div>
+                <div class="footer__heading">Company</div>
+                <div class="footer__links">
+                    <a href="/about.html">About</a>
+                </div>
+            </div>
+            <div>
+                <div class="footer__heading">Follow Us</div>
+                <div class="footer__links">
+                    <a href="https://www.tiktok.com/@se7en.video.ai" target="_blank" rel="noopener">TikTok</a>
+                    <a href="https://linktr.ee/se7enai" target="_blank" rel="noopener">Linktree</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <span>&copy; 2026 NoCodeFlow. All rights reserved.</span>
+                <span>v1.3.0</span>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+    <script>
+    (function() {
+        const toggle = document.getElementById('themeToggle');
+        const saved = localStorage.getItem('nocodeflow-theme');
+        if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.body.classList.add('dark');
+        }
+        toggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            localStorage.setItem('nocodeflow-theme', isDark ? 'dark' : 'light');
+        });
+
+        const hamburger = document.getElementById('navHamburger');
+        const mobile = document.getElementById('navMobile');
+        hamburger.addEventListener('click', function() { mobile.classList.toggle('is-open'); });
+
+        const progress = document.getElementById('readingProgress');
+        window.addEventListener('scroll', function() {
+            const docH = document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.width = (window.scrollY / docH) * 100 + '%';
+        });
+
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) btn.classList.add('is-visible');
+            else btn.classList.remove('is-visible');
+        });
+        btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    })();
+    </script>
+<!-- PostHog Event Tracking -->
+<script>
+  posthog.capture('page_view', {
+    product: 'nocodeflow',
+    page: document.title,
+    path: window.location.pathname
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href*="make.com"], a[href*="lemonsqueezy"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        posthog.capture('affiliate_click', {
+          product: 'nocodeflow',
+          destination: this.href,
+          button_text: this.textContent.trim()
+        });
+      });
+    });
+
+    var newsletterForm = document.querySelector('.newsletter form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function() {
+        posthog.capture('newsletter_signup', { product: 'nocodeflow' });
+      });
+    }
+  });
+</script>
+</body>
+</html>
