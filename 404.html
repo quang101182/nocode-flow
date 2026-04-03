@@ -1,0 +1,123 @@
+<!-- NoCodeFlow 404 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — NoCodeFlow</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sticky navigation -->
+  <nav class="navbar">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <a href="/" class="navbar__logo">NoCodeFlow</a>
+      <div class="navbar__links">
+        <a href="/">Home</a>
+        <a href="/#articles" data-filter="tool">Tools</a>
+        <a href="/#articles" data-filter="tutorial">Tutorials</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <span class="theme-toggle__icon theme-toggle__icon--sun">&#9728;</span>
+          <span class="theme-toggle__icon theme-toggle__icon--moon">&#9790;</span>
+        </button>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="navbar__mobile" id="mobile-menu">
+      <a href="/">Home</a>
+      <a href="/#articles">Tools</a>
+      <a href="/#articles">Tutorials</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <!-- 404 Content -->
+  <section class="hero" style="min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;">
+    <div class="container">
+      <h1 style="font-size:5rem;margin-bottom:0.5rem;opacity:0.3;">404</h1>
+      <h2 class="hero__title" style="font-size:2rem;">Oops! This page doesn't exist.</h2>
+      <p class="hero__subtitle" style="max-width:500px;margin:1rem auto;">The page you're looking for may have been moved, deleted, or never existed. But don't worry — there's plenty to explore!</p>
+      <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+        <a href="/" class="cta-button">Back to Home</a>
+      </div>
+      <div style="margin-top:3rem;text-align:left;max-width:500px;margin-left:auto;margin-right:auto;">
+        <h3 style="margin-bottom:1rem;font-size:1.1rem;">Popular articles:</h3>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="n8n-vs-zapier.html" style="text-decoration:underline;">n8n vs Zapier — Honest Verdict</a></li>
+          <li><a href="best-free-automation-tools.html" style="text-decoration:underline;">7 Best Free Automation Tools</a></li>
+          <li><a href="zapier-alternatives.html" style="text-decoration:underline;">10 Best Zapier Alternatives</a></li>
+          <li><a href="n8n-vs-make-vs-zapier.html" style="text-decoration:underline;">n8n vs Make vs Zapier — Ultimate Comparison</a></li>
+          <li><a href="what-is-no-code-automation.html" style="text-decoration:underline;">What is No-Code Automation?</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__brand">
+        <span class="footer__logo">NoCodeFlow</span>
+        <p class="footer__desc">Helping you automate everything — without writing code.</p>
+      </div>
+      <div class="footer__links">
+        <h4 class="footer__heading">Navigation</h4>
+        <a href="/">Home</a>
+        <a href="/#articles" data-filter="tool">Tools</a>
+        <a href="/#articles" data-filter="tutorial">Tutorials</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer__links">
+        <h4 class="footer__heading">Resources</h4>
+        <a href="n8n-vs-zapier.html">n8n vs Zapier</a>
+        <a href="make-vs-zapier-pricing.html">Make vs Zapier</a>
+        <a href="best-free-automation-tools.html">Free Tools</a>
+      </div>
+      <div class="footer__links">
+        <h4 class="footer__heading">Our Tools</h4>
+        <a href="https://sub-whisper.com" target="_blank">SubWhisper Pro</a>
+        <a href="https://t.me/VoiceBoxTranscBot" target="_blank">VoiceBox Bot</a>
+        <a href="https://voicebox-bot.fly.dev" target="_blank">VoiceBox Web</a>
+        <a href="https://noteflowing.com" target="_blank">NoteFlowing</a>
+      </div>
+      <div class="footer__links">
+        <h4 class="footer__heading">Follow Us</h4>
+        <a href="https://www.tiktok.com/@se7en.video.ai" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://linktr.ee/se7enai" target="_blank" rel="noopener">Linktree</a>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 NoCodeFlow. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function() {
+    // Theme toggle
+    const toggle = document.getElementById('theme-toggle');
+    const stored = localStorage.getItem('ncf-theme');
+    if (stored === 'light') document.body.classList.add('light');
+    if (toggle) toggle.addEventListener('click', function() {
+      document.body.classList.toggle('light');
+      localStorage.setItem('ncf-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    });
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function() {
+        mobileMenu.classList.toggle('is-open');
+        hamburger.classList.toggle('is-open');
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
