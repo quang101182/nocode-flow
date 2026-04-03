@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NoCodeFlow — OG Image Generator v1.0</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    padding: 2rem;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #7C3AED, #06B6D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .subtitle {
+    text-align: center;
+    color: #888;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+  .controls {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .controls button {
+    background: linear-gradient(135deg, #7C3AED, #06B6D4);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .controls button:hover { opacity: 0.9; }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .card {
+    background: #1a1a2e;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #2a2a3e;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .card-header h3 {
+    font-size: 0.95rem;
+    color: #ccc;
+    flex: 1;
+    margin-right: 1rem;
+  }
+  .card-header .badge {
+    background: #7C3AED;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  canvas {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #333;
+  }
+  .download-btn {
+    background: #06B6D4;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: block;
+    margin: 0 auto;
+  }
+  .download-btn:hover { background: #0891B2; }
+  .version { text-align: center; color: #555; font-size: 0.75rem; margin-top: 2rem; }
+</style>
+</head>
+<body>
+
+<h1>NoCodeFlow — OG Image Generator</h1>
+<p class="subtitle">Generate 1200x630 Open Graph images for all 21 articles</p>
+
+<div class="controls">
+  <button onclick="downloadAll()">Download All Images (ZIP)</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<p class="version">v1.0 — Local tool, not indexed</p>
+
+<script>
+const articles = [
+  { file: "automate-email-marketing-no-code", title: "How to Automate Email Marketing Without Code", category: "TUTORIAL" },
+  { file: "automate-google-sheets-make", title: "How to Automate Google Sheets with Make.com", category: "TUTORIAL" },
+  { file: "automate-invoice-processing", title: "How to Automate Invoice Processing Without Code", category: "TUTORIAL" },
+  { file: "automate-social-media-no-code", title: "How to Automate Social Media Without Code in 2026", category: "TUTORIAL" },
+  { file: "best-ai-transcription-tools", title: "Best AI Transcription Tools 2026: Complete Guide", category: "GUIDE" },
+  { file: "best-free-automation-tools", title: "7 Best Free Automation Tools in 2026", category: "GUIDE" },
+  { file: "make-vs-n8n-2026", title: "Make.com vs n8n in 2026: Which Should You Choose?", category: "COMPARISON" },
+  { file: "make-vs-zapier-pricing", title: "Make vs Zapier Pricing 2026: Which Saves You More?", category: "COMPARISON" },
+  { file: "n8n-ai-workflow-tutorial", title: "How to Build AI Workflows with n8n (No Code)", category: "TUTORIAL" },
+  { file: "n8n-automation-examples", title: "15 Powerful n8n Automation Examples You Can Build Today", category: "GUIDE" },
+  { file: "n8n-gmail-automation-tutorial", title: "How to Automate Gmail with n8n: Step-by-Step", category: "TUTORIAL" },
+  { file: "n8n-telegram-bot-tutorial", title: "How to Build a Telegram Bot with n8n (No Code)", category: "TUTORIAL" },
+  { file: "n8n-vs-make", title: "n8n vs Make.com 2026: Which Platform is Better?", category: "COMPARISON" },
+  { file: "n8n-vs-make-vs-zapier", title: "n8n vs Make vs Zapier 2026: Ultimate Comparison", category: "COMPARISON" },
+  { file: "n8n-vs-zapier", title: "n8n vs Zapier: I Tested Both — Honest Verdict", category: "COMPARISON" },
+  { file: "no-code-automation-for-small-business", title: "No-Code Automation for Small Business: 10 Workflows", category: "GUIDE" },
+  { file: "subtitle-translation-tools-compared", title: "SubWhisper Pro vs VEED vs Kapwing: Best Subtitle Tool", category: "COMPARISON" },
+  { file: "telegram-voice-transcription-bot", title: "How to Transcribe Telegram Voice Messages with AI", category: "TUTORIAL" },
+  { file: "what-is-no-code-automation", title: "What is No-Code Automation? Beginner's Guide 2026", category: "GUIDE" },
+  { file: "zapier-alternatives", title: "10 Best Zapier Alternatives in 2026", category: "GUIDE" },
+  { file: "zapier-vs-n8n-pricing-2026", title: "Zapier vs n8n Pricing: Real Cost Breakdown", category: "COMPARISON" },
+];
+
+const categoryColors = {
+  TUTORIAL: "#7C3AED",
+  COMPARISON: "#EC4899",
+  GUIDE: "#06B6D4",
+};
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
+  const words = text.split(' ');
+  let line = '';
+  let lines = [];
+
+  for (let i = 0; i < words.length; i++) {
+    const testLine = line + words[i] + ' ';
+    const metrics = ctx.measureText(testLine);
+    if (metrics.width > maxWidth && line !== '') {
+      lines.push(line.trim());
+      line = words[i] + ' ';
+    } else {
+      line = testLine;
+    }
+  }
+  lines.push(line.trim());
+
+  if (lines.length > maxLines) {
+    lines = lines.slice(0, maxLines);
+    lines[maxLines - 1] = lines[maxLines - 1].replace(/\s+\S*$/, '...');
+  }
+
+  const totalHeight = lines.length * lineHeight;
+  const startY = y - totalHeight / 2 + lineHeight / 2;
+
+  lines.forEach((l, idx) => {
+    ctx.fillText(l, x, startY + idx * lineHeight);
+  });
+}
+
+function drawOGImage(canvas, article) {
+  const ctx = canvas.getContext('2d');
+  const W = 1200, H = 630;
+  canvas.width = W;
+  canvas.height = H;
+
+  // Background gradient
+  const grad = ctx.createLinearGradient(0, 0, W, H);
+  grad.addColorStop(0, '#7C3AED');
+  grad.addColorStop(1, '#06B6D4');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  // Subtle pattern overlay
+  ctx.fillStyle = 'rgba(0,0,0,0.15)';
+  ctx.fillRect(0, 0, W, H);
+
+  // Decorative circles
+  ctx.globalAlpha = 0.08;
+  ctx.fillStyle = '#fff';
+  ctx.beginPath();
+  ctx.arc(1050, 100, 200, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(150, 530, 150, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 1;
+
+  // Top-left brand
+  ctx.font = 'bold 36px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,0.95)';
+  ctx.textAlign = 'left';
+  ctx.fillText('NoCodeFlow', 60, 70);
+
+  // Dot separator
+  ctx.fillStyle = '#06B6D4';
+  ctx.beginPath();
+  ctx.arc(260, 62, 6, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Category badge
+  const catColor = categoryColors[article.category] || '#7C3AED';
+  const catText = article.category;
+  ctx.font = 'bold 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+  const catWidth = ctx.measureText(catText).width + 32;
+  const catX = (W - catWidth) / 2;
+  const catY = 140;
+
+  ctx.fillStyle = 'rgba(0,0,0,0.3)';
+  roundRect(ctx, catX, catY, catWidth, 38, 19);
+  ctx.fill();
+
+  ctx.fillStyle = catColor;
+  roundRect(ctx, catX + 1, catY + 1, catWidth - 2, 36, 18);
+  ctx.fill();
+
+  ctx.fillStyle = '#fff';
+  ctx.textAlign = 'center';
+  ctx.fillText(catText, W / 2, catY + 26);
+
+  // Title
+  ctx.font = 'bold 52px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+  ctx.fillStyle = '#fff';
+  ctx.textAlign = 'center';
+  ctx.shadowColor = 'rgba(0,0,0,0.3)';
+  ctx.shadowBlur = 10;
+  ctx.shadowOffsetY = 4;
+  wrapText(ctx, article.title, W / 2, H / 2 + 30, W - 160, 64, 3);
+
+  ctx.shadowColor = 'transparent';
+  ctx.shadowBlur = 0;
+  ctx.shadowOffsetY = 0;
+
+  // Bottom URL line
+  ctx.fillStyle = 'rgba(255,255,255,0.15)';
+  ctx.fillRect(60, H - 80, W - 120, 1);
+
+  ctx.font = '22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,0.7)';
+  ctx.textAlign = 'center';
+  ctx.fillText('nocode-flow.com', W / 2, H - 40);
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function downloadCanvas(canvas, filename) {
+  const link = document.createElement('a');
+  link.download = filename + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+async function downloadAll() {
+  const cards = document.querySelectorAll('.card');
+  for (const card of cards) {
+    const canvas = card.querySelector('canvas');
+    const btn = card.querySelector('.download-btn');
+    const filename = btn.dataset.file;
+    downloadCanvas(canvas, filename);
+    await new Promise(r => setTimeout(r, 300));
+  }
+}
+
+// Render all
+const grid = document.getElementById('grid');
+
+articles.forEach((article, i) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  const catColor = categoryColors[article.category] || '#7C3AED';
+
+  card.innerHTML = `
+    <div class="card-header">
+      <h3>${i + 1}. ${article.title}</h3>
+      <span class="badge" style="background:${catColor}">${article.category}</span>
+    </div>
+    <div class="canvas-wrapper">
+      <canvas id="canvas-${i}"></canvas>
+    </div>
+    <button class="download-btn" data-file="${article.file}" onclick="downloadCanvas(document.getElementById('canvas-${i}'), '${article.file}')">
+      Download PNG
+    </button>
+  `;
+
+  grid.appendChild(card);
+
+  const canvas = card.querySelector(`#canvas-${i}`);
+  drawOGImage(canvas, article);
+});
+</script>
+</body>
+</html>
